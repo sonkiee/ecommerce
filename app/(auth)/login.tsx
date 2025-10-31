@@ -7,22 +7,17 @@ import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function RegistrationScreen() {
+export default function LoginScreen() {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <Text style={styles.title}>Create Your Account</Text>
+      <Text style={styles.title}>Login to Your Account</Text>
 
       {/* Form Fields */}
       <View style={styles.form}>
         <Input
-          label="Full Name"
-          placeholder="Enter your full name"
-          placeholderTextColor={colors.placeholder_dark}
-        />
-        <Input
-          label="Email"
-          placeholder="your.email@example.com"
+          label="Email or Username"
+          placeholder="Enter your email or username"
           placeholderTextColor={colors.placeholder_dark}
         />
         <Input
@@ -30,26 +25,14 @@ export default function RegistrationScreen() {
           placeholder="Enter your password"
           placeholderTextColor={colors.placeholder_dark}
         />
-        <Input
-          label="Confirm Password"
-          placeholder="Confirm your password"
-          placeholderTextColor={colors.placeholder_dark}
-        />
-        <Button title="Register" />
+
+        <Button title="Log in" />
       </View>
 
       {/* Terms and Conditions */}
-      <Text style={styles.termsText}>
-        By signing up, you agree to our{" "}
-        <Link href="/terms" style={styles.link}>
-          terms of service
-        </Link>{" "}
-        and{" "}
-        <Link href="/privacy" style={styles.link}>
-          privacy policy
-        </Link>
-        .
-      </Text>
+      <Link style={styles.termsText} href={"/(auth)/password-reset"}>
+        Forgot Password?
+      </Link>
 
       {/* Divider */}
       <View style={styles.divider}>
@@ -74,9 +57,9 @@ export default function RegistrationScreen() {
 
       {/* Footer */}
       <Text style={styles.footerText}>
-        Already have an account?{" "}
-        <Link href="/login" style={styles.link}>
-          Login
+        Don&apos;t have an account?{" "}
+        <Link href="/(auth)" style={styles.link}>
+          SignUp
         </Link>
       </Text>
     </View>
@@ -100,10 +83,13 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   termsText: {
-    color: colors.text_gray_dark,
+    // color: colors.text_gray_dark,
     fontSize: 12,
     textAlign: "center",
     marginTop: 16,
+
+    color: colors.primary,
+    textDecorationLine: "underline",
   },
   link: {
     color: colors.primary,

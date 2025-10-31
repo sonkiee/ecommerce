@@ -2,7 +2,7 @@
   "expo": {
     "name": "ecommerce",
     "slug": "ecommerce",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "ecommerce",
@@ -43,6 +43,18 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d352ec48-b369-4d8a-a477-fa12b637cd68"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/d352ec48-b369-4d8a-a477-fa12b637cd68"
     }
   }
 }

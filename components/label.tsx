@@ -4,7 +4,7 @@ import { Text } from "react-native";
 const Label = ({ text }: { text?: string }) => {
   return (
     <Text
-      style={{ fontWeight: "600", color: colors.text_white, marginBottom: 2 }}
+      style={{ fontWeight: "600", color: colors.text_white, marginBottom: 4 }}
     >
       {text ?? "Default Label"}
     </Text>
