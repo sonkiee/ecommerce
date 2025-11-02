@@ -9,7 +9,7 @@ export default function Index() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  if (isLoggedIn) return <Redirect href="/(home)" />;
+  if (isLoggedIn) return <Redirect href="/(app)/(tabs)" />;
 
   return <Redirect href="/(auth)" />;
 }

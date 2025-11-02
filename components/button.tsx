@@ -1,38 +1,66 @@
-import { colors, radius } from "@/constants";
-import { Pressable, PressableProps, StyleSheet, Text } from "react-native";
+import { colors, radius, spacing } from "@/constants";
+import {
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  ViewStyle,
+} from "react-native";
 
-interface ButtonProps extends PressableProps {
+interface ButtonProps extends TouchableOpacityProps {
   title: string;
   variant?: "primary" | "secondary";
+  style?: ViewStyle | ViewStyle[];
+  textStyle?: TextStyle | TextStyle[];
 }
 
-const Button = ({ title, ...props }: ButtonProps) => {
+const Button = ({
+  title,
+  variant = "primary",
+  style,
+  textStyle,
+  ...props
+}: ButtonProps) => {
+  const textColor = variant === "primary" ? colors.text_white : colors.primary;
+
   return (
-    <Pressable {...props} style={[styles.button]}>
-      <Text style={styles.buttonText}>{title ?? "Default Button"}</Text>
-    </Pressable>
+    <TouchableOpacity
+      {...props}
+      style={[styles.button, variantStyles[variant], style]}
+      activeOpacity={0.7}
+    >
+      <Text style={[styles.buttonText, { color: textColor }, textStyle]}>
+        {title ?? "Default Button"}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
-    borderWidth: 1,
-    borderColor: colors.border_gray_dark,
+    // borderWidth: 1,
+    // borderColor: colors.border_gray_dark,
     borderRadius: radius.lg,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    // paddingVertical: 12,
-    backgroundColor: colors.primary,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
     alignItems: "center",
     justifyContent: "center",
+    // flex: 1,
   },
   buttonText: {
-    color: colors.text_white,
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: "700",
+  },
+});
+
+const variantStyles = StyleSheet.create({
+  primary: {
+    backgroundColor: colors.primary,
+  },
+  secondary: {
+    backgroundColor: "rgba(234,42,51,0.1)",
   },
 });
 
 export default Button;
-
-// props.style;

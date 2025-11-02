@@ -4,7 +4,7 @@ import IconButton from "@/components/icon-button";
 import Input from "@/components/input";
 import { colors } from "@/constants";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function LoginScreen() {
@@ -26,7 +26,12 @@ export default function LoginScreen() {
           placeholderTextColor={colors.placeholder_dark}
         />
 
-        <Button title="Log in" />
+        <View>
+          <Button
+            title="Log in"
+            onPress={() => router.navigate("/(app)/(tabs)")}
+          />
+        </View>
       </View>
 
       {/* Terms and Conditions */}

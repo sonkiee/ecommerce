@@ -1,0 +1,45 @@
+import HomeHeader from "@/components/home-header";
+import { AntDesign } from "@expo/vector-icons";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
+
+export default function HomeLayout() {
+  return (
+    <>
+      <Stack>
+        <Stack.Screen
+          name="index"
+          options={{
+            // headerShown: false,
+            header: () => <HomeHeader />,
+            headerTransparent: true,
+          }}
+        />
+        <Stack.Screen
+          name="product/[id]"
+          options={{
+            title: "Product Details",
+            headerTitleAlign: "center",
+            headerTintColor: "#000",
+            // headerStyle: { backgroundColor: "#000" },
+            headerTransparent: true,
+            headerRight: () => (
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  alignContent: "center",
+                  marginLeft: 5,
+                }}
+              >
+                <AntDesign name="share-alt" size={24} color="black" />
+              </View>
+            ),
+          }}
+        />
+      </Stack>
+      <StatusBar style="dark" />
+    </>
+  );
+}
