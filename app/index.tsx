@@ -7,7 +7,7 @@ export default function Index() {
     name: "Kennedy Sunday",
   });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   if (isLoggedIn) return <Redirect href="/(app)/(tabs)" />;
 

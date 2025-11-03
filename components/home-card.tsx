@@ -62,7 +62,10 @@ export default function HomeCard({ item }) {
         {/* RIGHT SECTION */}
         <View style={styles.rightSection}>
           <View style={styles.iconBlock}>
-            <TouchableOpacity style={styles.iconButton}>
+            <TouchableOpacity
+              style={styles.iconButton}
+              onPress={() => router.push("/_sitemap")}
+            >
               <AntDesign name="heart" size={28} color="#fff" />
             </TouchableOpacity>
             <Text style={styles.iconText}>{item.likes}</Text>
